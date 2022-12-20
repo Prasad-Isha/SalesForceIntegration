@@ -1,12 +1,13 @@
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '3.0.0'
+    id 'org.springframework.boot' version '2.7.3'
     id 'io.spring.dependency-management' version '1.1.0'
+    id "com.avast.gradle.docker-compose" version "0.16.11"
 }
 
 group = 'com.isha.api'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '17'
+sourceCompatibility = '8'
 
 configurations {
     compileOnly {
@@ -22,9 +23,15 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
     compileOnly 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
-    runtimeOnly 'com.mysql:mysql-connector-j'
+    runtimeOnly 'mysql:mysql-connector-java'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation 'org.springdoc:springdoc-openapi-ui:1.6.13'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+}
+dockerCompose {
+    useComposeFiles = ['docker-compose_db.yml','docker-compose_kafka.yml']
 }
 
 tasks.named('test') {
