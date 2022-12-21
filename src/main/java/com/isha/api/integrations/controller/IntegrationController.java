@@ -14,8 +14,11 @@ import java.util.List;
 @RequestMapping("/v1")
 public class IntegrationController {
 
-@Autowired
     PrsIntegrationService prsIntegrationService;
+
+    public IntegrationController(PrsIntegrationService prsIntegrationService) {
+        this.prsIntegrationService = prsIntegrationService;
+    }
 
 @GetMapping("/getPrsData/{prgmID}")
     public List<IECOPayload> getDataFromPrs(@PathVariable("prgmID") int prgmID){

@@ -28,7 +28,14 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     implementation 'org.springdoc:springdoc-openapi-ui:1.6.13'
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.apache.commons:commons-lang3:3.12.0'
+    implementation 'org.codehaus.jackson:jackson-mapper-asl:1.9.13'
+    implementation 'org.springframework.kafka:spring-kafka:2.8.8'
 
+
+    testImplementation('org.springframework.kafka:spring-kafka-test:2.8.8')
+    testImplementation('org.testcontainers: 1.17.3')
 }
 dockerCompose {
     useComposeFiles = ['docker-compose_db.yml','docker-compose_kafka.yml']
