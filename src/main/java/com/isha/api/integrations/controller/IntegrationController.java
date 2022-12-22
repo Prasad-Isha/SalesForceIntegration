@@ -14,10 +14,13 @@ import java.util.List;
 @RequestMapping("/v1")
 public class IntegrationController {
 
-@Autowired
     PrsIntegrationService prsIntegrationService;
 
-@GetMapping("/getPrsData/{prgmID}")
+    public IntegrationController(PrsIntegrationService prsIntegrationService) {
+        this.prsIntegrationService = prsIntegrationService;
+    }
+
+@GetMapping("/prsData/{prgmID}")
     public List<IECOPayload> getDataFromPrs(@PathVariable("prgmID") int prgmID){
         return prsIntegrationService.getPrsData(prgmID);
 }
