@@ -20,7 +20,7 @@ public class IntegrationController {
         this.prsIntegrationService = prsIntegrationService;
     }
 
-@GetMapping("/getPrsData/{prgmID}")
+@GetMapping("/prsData/{prgmID}")
     public List<IECOPayload> getDataFromPrs(@PathVariable("prgmID") int prgmID){
         return prsIntegrationService.getPrsData(prgmID);
 }
