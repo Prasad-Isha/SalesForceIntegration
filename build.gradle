@@ -35,7 +35,7 @@ dependencies {
 
 
     testImplementation('org.springframework.kafka:spring-kafka-test:2.8.8')
-    testImplementation('org.testcontainers: 1.17.3')
+    //testImplementation('org.testcontainers: 1.17.3')
 }
 dockerCompose {
     useComposeFiles = ['docker-compose_db.yml','docker-compose_kafka.yml']
